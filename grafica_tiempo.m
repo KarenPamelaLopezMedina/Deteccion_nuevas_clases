@@ -1,13 +1,11 @@
 clear all, close all, clc;
 
-[d,s,r] = xlsread('Tiempos_kddcup_satan.xlsx');
-%[d,s,r] = xlsread('Tiempos_kddcup_smurf.csv');
-%[d,s,r] = xlsread('Libro1.csv');
+[d,s,r] = xlsread('Tiempos_base.xlsx');
 Time = d(:,7);
 Time = Time/60;
 DataChunk = [1:1:length(Time)];
-
-% plot(DataChunk, Time)
+ 
+ % plot(DataChunk, Time)
 figure
 [xa,ya] = stairs(DataChunk, Time);
 hold on
@@ -28,8 +26,10 @@ h(1).Marker = 'o';
 h(1).MarkerSize = 6;
 h(1).MarkerFaceColor = 'y';
 h(1).LineWidth = 2;
+txt = {'Tiempos base'};
+text(20,3,txt, 20, 'FontSize', 20)
 %saveas(gcf,'Accuracy_varias.png')
 hold off
-
-
+ 
+ 
 grid on
